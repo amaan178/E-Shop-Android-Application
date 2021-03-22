@@ -1,7 +1,7 @@
 
 
+E-Shop Android Application
 
 Flutter Android & iOS eCommerce App like Amazon | FlipKart | AliExpress | Daraz using Firebase Firestore.
-Developed by: Coding Cafe
+Developed by: Group 11
 
-Mail us at: alizeb875@gmail.com
