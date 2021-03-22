@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "197403595606",
+    "project_id": "eshop-b56cf",
+    "storage_bucket": "eshop-b56cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197403595606:android:fab7d39b63d2aea707bcf7",
+        "android_client_info": {
+          "package_name": "com.amaan.eshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197403595606-6d938i2p7dq91ajchnagaml9t6kmfon5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAinw1RicYJdM4fr0U-mO6HmD7xjEZLmV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197403595606-6d938i2p7dq91ajchnagaml9t6kmfon5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
