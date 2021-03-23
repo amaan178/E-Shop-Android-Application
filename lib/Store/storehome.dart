@@ -46,6 +46,7 @@ class _StoreHomeState extends State<StoreHome> {
             Stack(
               children: [
                 IconButton(
+                  padding: EdgeInsets.only(top: 10.0),
                   icon: Icon(Icons.shopping_cart, color: Colors.white,),
                   onPressed: () {
                     Route route = MaterialPageRoute(builder: (c) => CartPage());
@@ -58,17 +59,18 @@ class _StoreHomeState extends State<StoreHome> {
                       Icon(
                         Icons.brightness_1,
                         size: 20.0,
-                        color: Colors.white
+                        color: Colors.white,
                       ),
                       Positioned(
                         top: 3.0,
                         bottom: 4.0,
+                        left: 6.0,
                         child: Consumer<CartItemCounter>(
                           builder: (context, counter, _)
                           {
                             return Text(
-                              counter.count.toString(),
-                              style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w500),
+                              (EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList).length-1).toString(),
+                              style: TextStyle(color: Colors.black54, fontSize: 12.0, fontWeight: FontWeight.w500),
                             );
                           },
                         ),
