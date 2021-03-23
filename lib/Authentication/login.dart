@@ -66,6 +66,9 @@ class _LoginState extends State<Login>
                 ],
               ),
             ),
+            SizedBox(
+              height: 25.0,
+            ),
             RaisedButton(
               onPressed: () {
                 _emailTextEditingController.text.isNotEmpty
@@ -97,6 +100,9 @@ class _LoginState extends State<Login>
               onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> AdminSignInPage())),
               icon: (Icon(Icons.nature_people, color: Colors.white)),
               label: Text("i am Admin", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+            ),
+            SizedBox(
+              height: 50.0,
             ),
           ],
         ),
