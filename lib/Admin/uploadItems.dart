@@ -22,6 +22,76 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
 
   @override
   Widget build(BuildContext context) {
-    return Text("");
+    return displayAdminHomeScreen();
+  }
+
+  displayAdminHomeScreen()
+  {
+    return Scaffold(
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+              colors: [Colors.indigo, Colors.lightBlueAccent],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.0, 0.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp,
+            ),
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.border_color, color: Colors.white),
+          onPressed: ()
+          {
+            Route route = MaterialPageRoute(builder: (c) => AdminShiftOrders());
+            Navigator.pushReplacement(context, route);
+          },
+        ),
+        actions: [
+          FlatButton(
+            child: Text("Logout", style: TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold),),
+            onPressed: ()
+            {
+              Route route = MaterialPageRoute(builder: (c) => SplashScreen());
+              Navigator.pushReplacement(context, route);
+            },
+          ),
+        ],
+      ),
+      body: getAdminHomeScreenBody(),
+    );
+  }
+
+  getAdminHomeScreenBody()
+  {
+    return Container(
+      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+          colors: [Colors.indigo, Colors.lightBlueAccent],
+          begin: const FractionalOffset(0.0, 0.0),
+          end: const FractionalOffset(1.0, 0.0),
+          stops: [0.0, 1.0],
+          tileMode: TileMode.clamp,
+        ),
+      ),
+      child: Center (
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.shop_two, color: Colors.white, size: 200.0),
+            Padding(
+              padding: EdgeInsets.only(top: 20.0),
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                child: Text("Add New Item", style: TextStyle(fontSize: 20.0, color: Colors.white)),
+                color: Colors.lightBlueAccent,
+                onPressed: () => print("click"),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
