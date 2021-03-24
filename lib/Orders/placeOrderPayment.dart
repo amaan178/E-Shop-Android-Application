@@ -26,11 +26,11 @@ class _PaymentPageState extends State<PaymentPage> {
       child:Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
-            colors: [Colors.pink, Colors.lightGreenAccent],
+            colors: [Colors.indigo, Colors.lightBlueAccent],
             begin: const FractionalOffset(0.0, 0.0),
-            end:const FractionalOffset(1.0, 0.0),
-            stops: [0.0,1.0],
-
+            end: const FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp,
           ),
         ),
         child: Center(
@@ -44,14 +44,14 @@ class _PaymentPageState extends State<PaymentPage> {
               ),
               SizedBox(height: 10.0,),
               FlatButton(
-                color: Colors.pinkAccent,
-                textColor: Colors.white,
-                padding: EdgeInsets.all(8.0),
-                splashColor: Colors.deepOrange,
+                color: Colors.white,
+                textColor: Colors.indigo,
+                padding: EdgeInsets.all(15.0),
+                splashColor: Colors.lightBlueAccent,
                 onPressed: () => addOrderDetails(),
                 child: Text(
                   "Place Order",
-                  style: TextStyle(fontSize: 30.0, ),
+                  style: TextStyle(fontSize: 26.0, ),
 
                 ),
               ),

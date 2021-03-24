@@ -125,7 +125,7 @@ class _AddressCardState extends State<AddressCard> {
         Provider.of<AddressChanger>(context, listen: false).displayResult(widget.value);
       },
       child: Card(
-        color: Colors.pinkAccent.withOpacity(0.4),
+        color: Colors.blue.withOpacity(0.3),
         child: Column(
           children: [
             Row(
@@ -133,7 +133,7 @@ class _AddressCardState extends State<AddressCard> {
                 Radio(
                   value: widget.value,
                   groupValue: widget.currentIndex,
-                  activeColor: Colors.lightBlueAccent,
+                  activeColor: Colors.white,
                   onChanged: (val)
                   {
                     Provider.of<AddressChanger>(context, listen:false).displayResult(val);
@@ -151,45 +151,38 @@ class _AddressCardState extends State<AddressCard> {
                               children: [
                                 KeyText(msg: "Name",),
                                 Text(widget.model.name),
-
                               ]
                           ),
                           TableRow(
                               children: [
                                 KeyText(msg: "Phone number",),
                                 Text(widget.model.phoneNumber),
-
                               ]
                           ),
                           TableRow(
                               children: [
                                 KeyText(msg: "Flat No",),
                                 Text(widget.model.flatNumber),
-
                               ]
                           ),
                           TableRow(
                               children: [
                                 KeyText(msg: "City",),
                                 Text(widget.model.city),
-
                               ]
                           ),
                           TableRow(
                               children: [
                                 KeyText(msg: "State",),
                                 Text(widget.model.state),
-
                               ]
                           ),
                           TableRow(
                               children: [
                                 KeyText(msg: "Pin Code",),
                                 Text(widget.model.pincode),
-
                               ]
                           ),
-
                         ],
                       ),
                     ),

@@ -9,20 +9,20 @@ class WideButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top:10.9, bottom: 10.0),
+      padding: EdgeInsets.only(top:8.0, bottom: 8.0),
       child: Center(
         child: InkWell(
           onTap: onPressed,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.lightBlueAccent,
+              color: Colors.white,
             ),
-            width: MediaQuery.of(context).size.width * 0.85,
+            width: MediaQuery.of(context).size.width * 0.6,
             height: 50.0,
             child: Center(
               child: Text(
                 message,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black54, fontSize: 16.0),
               ),
             ),
           ),
