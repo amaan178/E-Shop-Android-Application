@@ -242,7 +242,27 @@ Widget sourceInfo(ItemModel model, BuildContext context,
 
                     ),
                   ),
-                  //to implement the cart item remove feature
+                  //to implement the cart item add or remove feature
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: removeCartFunction == null
+                          ?IconButton(
+                        icon: Icon(Icons.add_shopping_cart,color:Colors.lightBlueAccent),
+                        onPressed: (){
+                          checkItemInCart(model.shortInfo, context);
+                        },
+                      )
+                          :IconButton(
+                        icon: Icon(Icons.remove_shopping_cart,color:Colors.lightBlueAccent),
+                        onPressed: (){
+                          removeCartFunction();
+                        },
+                      )
+                  ),
+                  Divider(
+                    height: 5.0,
+                    color: Colors.lightBlueAccent,
+                  ),
                 ],
               ),
             ),
@@ -254,13 +274,44 @@ Widget sourceInfo(ItemModel model, BuildContext context,
 }
 
 
-
 Widget card({Color primaryColor = Colors.redAccent, String imgPath}) {
-  return Container();
+  return Container(
+    height: 150.0,
+    width: width*0.34,
+    margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+    decoration: BoxDecoration(
+        color: primaryColor,
+        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        boxShadow: <BoxShadow>[
+          BoxShadow(offset: Offset(0,5),blurRadius:10.0, color: Colors.grey[200] ),
+        ]
+    ),
+    child: ClipRRect(
+      borderRadius :BorderRadius.all(Radius.circular(20.0)),
+      child: Image.network(
+        imgPath,
+        height: 150.0,
+        width: width*0.34,
+        fit:BoxFit.fill ,
+      ),
+    ),
+  );
 }
 
-
-
-void checkItemInCart(String productID, BuildContext context)
+void checkItemInCart(String shortInfoAsID, BuildContext context) {
+  EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList).contains(shortInfoAsID)
+      ?Fluttertoast.showToast(msg: "Item already in the Cart")
+      :addItemToCart(shortInfoAsID,context);
+}
+addItemToCart(String shortInfoAsID, BuildContext context)
 {
+  List tempCartList= EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList);
+  tempCartList.add(shortInfoAsID);
+  EcommerceApp.firestore.collection(EcommerceApp.collectionUser).document(EcommerceApp.sharedPreferences.getString(EcommerceApp.userUID))
+      .updateData({ EcommerceApp.userCartList : tempCartList,
+  }).then((v){
+    Fluttertoast.showToast(msg: "Item added to cart successfully");
+    EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList, tempCartList);
+    Provider.of<CartItemCounter>(context, listen: false).displayResult();
+  });
 }
