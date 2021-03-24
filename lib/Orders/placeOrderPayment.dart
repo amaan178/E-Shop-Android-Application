@@ -16,9 +16,6 @@ class PaymentPage extends StatefulWidget {
   _PaymentPageState createState() => _PaymentPageState();
 }
 
-
-
-
 class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
@@ -40,7 +37,6 @@ class _PaymentPageState extends State<PaymentPage> {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Image.asset("images/cash.png"),
-
               ),
               SizedBox(height: 10.0,),
               FlatButton(
@@ -85,6 +81,7 @@ class _PaymentPageState extends State<PaymentPage> {
       emptyCartNow()
     });
   }
+
   emptyCartNow()
   {
     EcommerceApp.sharedPreferences.setStringList(EcommerceApp.userCartList,["garbageValue"] );
@@ -102,6 +99,7 @@ class _PaymentPageState extends State<PaymentPage> {
     Route route = MaterialPageRoute(builder: (c) => StoreHome());
     Navigator.pushReplacement(context, route);
   }
+
   Future writeOrderDetailsForUser(Map<String, dynamic> data) async
   {
     await EcommerceApp.firestore.collection(EcommerceApp.collectionUser)

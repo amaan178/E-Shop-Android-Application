@@ -37,7 +37,6 @@ class _AddressState extends State<Address>
                 child: Text(
                   "Select an address",
                   style: TextStyle(color: Colors.black,fontSize:20.0,fontWeight: FontWeight.bold),
-
                 ),
               ),
             ),
@@ -50,18 +49,18 @@ class _AddressState extends State<Address>
                   builder: (context,snapshot){
                     return !snapshot.hasData
                         ?Center(child: circularProgress(),)
-                        :snapshot.data.documents.length==0
+                        :snapshot.data.documents.length == 0
                         ?noAddressCard()
                         :ListView.builder(
-                      itemCount: snapshot.data.documents.length,
-                      shrinkWrap: true,
-                      itemBuilder: (context,index){
-                        return AddressCard(
-                          currentIndex: address.count,
-                          value: index,
-                          addressId: snapshot.data.documents[index].documentID,
-                          totalAmount: widget.totalAmount,
-                          model: AddressModel.fromJson(snapshot.data.documents[index].data),
+                          itemCount: snapshot.data.documents.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context,index){
+                            return AddressCard(
+                              currentIndex: address.count,
+                              value: index,
+                              addressId: snapshot.data.documents[index].documentID,
+                              totalAmount: widget.totalAmount,
+                              model: AddressModel.fromJson(snapshot.data.documents[index].data),
                         );
                       },
                     );
